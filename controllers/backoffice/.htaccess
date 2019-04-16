@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+#RewriteCond %{HTTP_HOST} ^((?!www\.)(?!myapp\.com)[^\.]+)\.
+#RewriteRule ^(.*)$ /index.php?/user/%1/$1 [L] 
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|public|images|robots\.txt|css)
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
